@@ -131,43 +131,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);m
 .modal-hint{font-size:11px;color:var(--text-3);display:flex;justify-content:space-between}
 .modal-error{font-size:12px;color:var(--red);min-height:14px;margin-top:2px}
 
-/* ── Footer ── */
+/* ── Footer & Feedback ── */
 .app-footer{border-top:1px solid var(--border);background:var(--surface);margin-top:52px}
 .footer-inner{max-width:980px;margin:0 auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .footer-brand{font-size:12px;color:var(--text-3)}
 .footer-brand em{font-style:italic}
 .feedback-toggle{border:1.5px solid var(--border);background:none;cursor:pointer;font-size:12px;font-weight:500;color:var(--text-2);font-family:'DM Sans',sans-serif;padding:6px 14px;border-radius:20px;transition:all .15s;display:inline-flex;align-items:center;gap:6px}
 .feedback-toggle:hover{background:var(--accent-bg);color:var(--accent);border-color:var(--accent-border)}
-
-/* ── Compose Modal ── */
-.compose-overlay{position:fixed;inset:0;background:rgba(26,25,24,.55);display:flex;align-items:center;justify-content:center;z-index:3000;backdrop-filter:blur(6px);padding:16px}
-.compose-overlay.hidden{display:none}
-.compose-modal{background:var(--surface);border-radius:16px;width:100%;max-width:500px;box-shadow:0 28px 72px rgba(0,0,0,.2);overflow:hidden;animation:modalIn .22s ease;display:flex;flex-direction:column}
-.compose-head{background:linear-gradient(135deg,#1D4ED8 0%,#4F46E5 100%);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.compose-head-title{font-size:15px;font-weight:600;color:white;display:flex;align-items:center;gap:9px}
-.compose-head-icon{width:30px;height:30px;background:rgba(255,255,255,.15);border-radius:8px;display:flex;align-items:center;justify-content:center}
-.compose-close{border:none;background:rgba(255,255,255,.15);color:white;cursor:pointer;width:30px;height:30px;border-radius:50%;font-size:15px;display:flex;align-items:center;justify-content:center;transition:background .15s;flex-shrink:0}
-.compose-close:hover{background:rgba(255,255,255,.3)}
-.compose-meta{border-bottom:1px solid var(--border);flex-shrink:0}
-.compose-row{display:flex;align-items:center;padding:10px 18px;border-bottom:1px solid var(--border);gap:12px}
-.compose-row:last-child{border-bottom:none}
-.compose-row-label{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);width:48px;flex-shrink:0}
-.compose-row-val{font-size:13px;color:var(--text-2);flex:1;font-style:normal}
-.compose-row-input{border:none;outline:none;font-size:13px;color:var(--text-1);font-family:'DM Sans',sans-serif;flex:1;background:none;padding:0;min-width:0}
-.compose-row-input::placeholder{color:var(--text-3)}
-.compose-body{padding:14px 18px;flex:1}
-.compose-textarea{width:100%;min-height:130px;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text-1);resize:vertical;line-height:1.65;background:none}
-.compose-textarea::placeholder{color:var(--text-3)}
-.compose-foot{padding:12px 18px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;background:var(--surface-2);flex-shrink:0}
-.compose-char{font-size:11px;color:var(--text-3);flex:1}
-.compose-send-btn{height:36px;padding:0 18px;border-radius:var(--r-sm);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;border:none;background:linear-gradient(135deg,#1D4ED8,#4F46E5);color:white;display:inline-flex;align-items:center;gap:7px;transition:opacity .15s}
-.compose-send-btn:hover{opacity:.88}
-.compose-send-btn:disabled{opacity:.5;cursor:not-allowed}
-.compose-status{font-size:12px;padding:10px 18px;text-align:center;display:none;flex-shrink:0}
-.compose-status.success{display:block;background:#F0FDF4;color:#15803D;border-top:1px solid #BBF7D0}
-.compose-status.error{display:block;background:#FEF2F2;color:#B91C1C;border-top:1px solid #FECACA}
-.compose-setup-warn{font-size:11px;color:var(--amber);background:var(--amber-bg);border-top:1px solid #FDE68A;padding:8px 18px;text-align:center;display:none}
-.compose-setup-warn.visible{display:block}
+.feedback-panel{display:none;border-top:1px solid var(--border);background:var(--surface-2);padding:20px 28px}
+.feedback-panel.open{display:block}
+.feedback-inner{max-width:980px;margin:0 auto}
+.feedback-title{font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:10px}
+.feedback-textarea{width:100%;min-height:96px;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:11px 14px;font-family:'DM Sans',sans-serif;font-size:13px;background:var(--surface);color:var(--text-1);resize:vertical;outline:none;transition:border-color .15s}
+.feedback-textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(29,78,216,.07)}
+.feedback-actions{display:flex;align-items:center;gap:8px;margin-top:10px}
+.feedback-char{font-size:11px;color:var(--text-3);flex:1}
+.feedback-user-note{font-size:11px;color:var(--text-3);margin-top:8px}
 .section-header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .section-title{font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text-3);white-space:nowrap}
 .section-line{flex:1;height:1px;background:var(--border)}
@@ -382,55 +361,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);m
     <button id="onboardingBtn" class="btn btn-primary" style="width:100%;justify-content:center;height:46px;font-size:14px" onclick="submitOnboarding()">Enter Chronicle →</button>
     <div style="text-align:center;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)">
       <span style="font-size:12px;color:var(--text-3)">Don't have a code?</span>
-      <button onclick="openCompose('invite')" style="border:none;background:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--accent);font-family:'DM Sans',sans-serif;margin-left:6px;padding:0;text-decoration:underline;text-underline-offset:2px">Request one →</button>
-    </div>
-  </div>
-</div>
-
-<!-- ── Compose Modal (Feedback & Invite Request) ── -->
-<div class="compose-overlay hidden" id="composeOverlay">
-  <div class="compose-modal">
-    <div class="compose-head">
-      <div class="compose-head-title">
-        <div class="compose-head-icon">
-          <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <span id="composeTitleText">Send Feedback</span>
-      </div>
-      <button class="compose-close" onclick="closeCompose()">✕</button>
-    </div>
-    <div class="compose-meta">
-      <div class="compose-row">
-        <span class="compose-row-label">To</span>
-        <span class="compose-row-val">swapnilbhatnagar@yahoo.com</span>
-      </div>
-      <div class="compose-row">
-        <span class="compose-row-label">Subject</span>
-        <span class="compose-row-val" id="composeSubjectVal"></span>
-      </div>
-      <div class="compose-row" id="composeFromRow">
-        <span class="compose-row-label">From</span>
-        <span class="compose-row-val" id="composeFromVal"></span>
-      </div>
-      <div class="compose-row" id="composeNameRow" style="display:none">
-        <span class="compose-row-label">Name</span>
-        <input type="text" class="compose-row-input" id="composeNameInput" placeholder="Your name (required)" maxlength="60">
-      </div>
-    </div>
-    <div class="compose-body">
-      <textarea class="compose-textarea" id="composeMessage" placeholder="" maxlength="1500" oninput="updateComposeChar()"></textarea>
-    </div>
-    <div class="compose-foot">
-      <span class="compose-char" id="composeChar">0 / 1500</span>
-      <button class="btn btn-ghost btn-sm" onclick="closeCompose()">Cancel</button>
-      <button class="compose-send-btn" id="composeSendBtn" onclick="sendCompose()">
-        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
-        Send
-      </button>
-    </div>
-    <div class="compose-status" id="composeStatus"></div>
-    <div class="compose-setup-warn" id="composeSetupWarn">
-      ⚠ Web3Forms key not configured. See setup instructions in the file comments.
+      <button onclick="requestInviteCode()" style="border:none;background:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--accent);font-family:'DM Sans',sans-serif;margin-left:6px;padding:0;text-decoration:underline;text-underline-offset:2px">Request one →</button>
     </div>
   </div>
 </div>
@@ -670,7 +601,7 @@ function requestInviteCode() {
 function initModalKeys() {
   ['inputName','inputCode'].forEach(id => {
     document.getElementById(id)?.addEventListener('keydown', e => {
-      if (e.key === 'Enter') submitOnboarding();
+      if (e.key === 'Enter') submitOnboarding(); // async — fine to call without await here
     });
   });
 }
@@ -680,6 +611,7 @@ function initModalKeys() {
 // ════════════════════════════════════════════════════════════
 function getGreeting() {
   const h = new Date().getHours();
+  // Arrays: pick by day-of-month mod length (consistent within a day)
   const idx = new Date().getDate();
   const pools = {
     morning:   ['Good morning','Rise & shine','Morning'],
@@ -702,139 +634,42 @@ function showGreeting() {
   text.textContent = `${getGreeting()}, ${currentUser.name}`;
   code.textContent = `ICode: ${currentUser.code}`;
   bar.classList.add('visible');
+  // Update feedback user note
+  const note = document.getElementById('feedbackUserNote');
+  if (note) note.textContent = `Sending as: ${currentUser.name} · ICode: ${currentUser.code}`;
 }
 
 // ════════════════════════════════════════════════════════════
-// ★ WEB3FORMS KEY
-//   1. Go to https://web3forms.com
-//   2. Enter swapnilbhatnagar@yahoo.com → click "Create Access Key"
-//   3. Copy the key and paste it below (replacing YOUR_KEY_HERE)
-//   4. Save file and re-upload. Done — emails will arrive in your inbox.
+// FEEDBACK
 // ════════════════════════════════════════════════════════════
-const WEB3FORMS_KEY = 'YOUR_KEY_HERE';
-
-// ════════════════════════════════════════════════════════════
-// COMPOSE MODAL
-// ════════════════════════════════════════════════════════════
-let composeMode = 'feedback';
-
-function openCompose(mode) {
-  composeMode = mode;
-  const isFeedback = mode === 'feedback';
-
-  // Title
-  document.getElementById('composeTitleText').textContent = isFeedback ? 'Send Feedback' : 'Request Invite Code';
-
-  // Subject
-  const code = currentUser?.code || 'N/A';
-  document.getElementById('composeSubjectVal').textContent = isFeedback
-    ? `Feedback from Chronicle User# ${code}`
-    : 'Request Invite Code for Chronicle';
-
-  // From row vs Name input row
-  document.getElementById('composeFromRow').style.display = isFeedback ? 'flex' : 'none';
-  document.getElementById('composeNameRow').style.display = isFeedback ? 'none' : 'flex';
-  document.getElementById('composeFromVal').textContent = currentUser
-    ? `${currentUser.name} (ICode: ${currentUser.code})`
-    : 'Chronicle User';
-
-  // Placeholder & pre-fill
-  const ta = document.getElementById('composeMessage');
-  if (isFeedback) {
-    ta.placeholder = 'Share your thoughts, report a bug, or suggest a feature…';
-    ta.value = '';
-  } else {
-    ta.placeholder = 'Tell us about yourself…';
-    ta.value = `Hi,\n\nI'd like to request an invite code for Chronicle — A simple time tracker.\n\nMy name: \nHow I found Chronicle: \nWhy I'd like to use it: \n\nThank you!`;
-  }
-
-  // Reset state
-  document.getElementById('composeStatus').className = 'compose-status';
-  document.getElementById('composeNameInput').value = '';
-  document.getElementById('composeSendBtn').disabled = false;
-  document.getElementById('composeSendBtn').innerHTML = `
-    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg> Send`;
-  updateComposeChar();
-
-  // Warn if key not set
-  const warn = document.getElementById('composeSetupWarn');
-  warn.classList.toggle('visible', !WEB3FORMS_KEY || WEB3FORMS_KEY === 'YOUR_KEY_HERE');
-
-  document.getElementById('composeOverlay').classList.remove('hidden');
-  setTimeout(() => document.getElementById('composeMessage').focus(), 80);
+function toggleFeedback() {
+  const panel = document.getElementById('feedbackPanel');
+  const isOpen = panel.classList.contains('open');
+  panel.classList.toggle('open', !isOpen);
+  if (!isOpen) document.getElementById('feedbackText').focus();
 }
-
-function closeCompose() {
-  document.getElementById('composeOverlay').classList.add('hidden');
+function updateFbCount() {
+  const v = document.getElementById('feedbackText').value;
+  document.getElementById('feedbackChar').textContent = `${v.length} / 1000`;
 }
-
-function updateComposeChar() {
-  const v = document.getElementById('composeMessage').value;
-  document.getElementById('composeChar').textContent = `${v.length} / 1500`;
-}
-
-async function sendCompose() {
-  if (!WEB3FORMS_KEY || WEB3FORMS_KEY === 'YOUR_KEY_HERE') {
-    document.getElementById('composeSetupWarn').classList.add('visible');
-    return;
-  }
-
-  const message = document.getElementById('composeMessage').value.trim();
-  if (!message) { document.getElementById('composeMessage').focus(); return; }
-
-  const isFeedback = composeMode === 'feedback';
-  const senderName = isFeedback
-    ? (currentUser?.name || 'Chronicle User')
-    : (document.getElementById('composeNameInput').value.trim() || 'Anonymous');
-
-  if (!isFeedback && !senderName) {
-    document.getElementById('composeNameInput').focus();
-    document.getElementById('composeNameInput').style.borderBottom = '2px solid var(--red)';
-    return;
-  }
-
-  const code = currentUser?.code || 'N/A';
-  const subject = isFeedback
-    ? `Feedback from Chronicle User# ${code}`
-    : 'Request Invite Code for Chronicle';
-
-  const fullBody = isFeedback
-    ? `${message}\n\n──────────────\nFrom: ${senderName}\nInvite Code: ${code}\nDate: ${new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}`
-    : `${message}\n\n──────────────\nDate: ${new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}`;
-
-  const btn = document.getElementById('composeSendBtn');
-  btn.disabled = true;
-  btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Sending…`;
-
-  try {
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        access_key: WEB3FORMS_KEY,
-        subject,
-        name: `Chronicle — ${senderName}`,
-        message: fullBody,
-        botcheck: false,
-      })
-    });
-    const json = await res.json();
-    if (json.success) {
-      const st = document.getElementById('composeStatus');
-      st.textContent = '✓ Message sent! You should receive a reply soon.';
-      st.className = 'compose-status success';
-      btn.innerHTML = '✓ Sent';
-      setTimeout(() => closeCompose(), 2200);
-    } else {
-      throw new Error(json.message || 'Send failed');
-    }
-  } catch(err) {
-    const st = document.getElementById('composeStatus');
-    st.textContent = `✗ Failed to send: ${err.message}. Please try again.`;
-    st.className = 'compose-status error';
-    btn.disabled = false;
-    btn.innerHTML = `<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg> Retry`;
-  }
+function submitFeedback() {
+  const msg = document.getElementById('feedbackText').value.trim();
+  if (!msg) { document.getElementById('feedbackText').focus(); return; }
+  const name = currentUser ? currentUser.name : 'Unknown';
+  const code = currentUser ? currentUser.code : 'N/A';
+  const subject = encodeURIComponent(`Feedback from Chronicle User# ${code}`);
+  const body = encodeURIComponent(
+    `${msg}\n\n` +
+    `──────────────────\n` +
+    `From: ${name}\n` +
+    `Invite Code: ${code}\n` +
+    `Date: ${new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}`
+  );
+  window.location.href = `mailto:swapnilbhatnagar@yahoo.com?subject=${subject}&body=${body}`;
+  document.getElementById('feedbackText').value = '';
+  document.getElementById('feedbackChar').textContent = '0 / 1000';
+  document.getElementById('feedbackPanel').classList.remove('open');
+  showToast('Email client opened ✓');
 }
 
 // ════════════════════════════════════════════════════════════
@@ -1801,12 +1636,6 @@ function init() {
   }
   initModalKeys();
 
-  // Close compose on Escape or outside click
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCompose(); });
-  document.getElementById('composeOverlay').addEventListener('click', e => {
-    if (e.target === document.getElementById('composeOverlay')) closeCompose();
-  });
-
   // Close export dropdown on outside click
   document.addEventListener('click', e => {
     const wrap = document.getElementById('exportWrap');
@@ -1825,14 +1654,26 @@ function init() {
 
 init();
 </script>
-<!-- ── Footer ── -->
+<!-- ── Feedback Footer ── -->
 <footer class="app-footer">
   <div class="footer-inner">
     <span class="footer-brand">Chronicle &mdash; <em>A simple time tracker</em></span>
-    <button class="feedback-toggle" onclick="openCompose('feedback')">
-      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <button class="feedback-toggle" onclick="toggleFeedback()">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       Send Feedback
     </button>
+  </div>
+  <div class="feedback-panel" id="feedbackPanel">
+    <div class="feedback-inner">
+      <div class="feedback-title">Your feedback goes directly to the creator</div>
+      <textarea class="feedback-textarea" id="feedbackText" placeholder="Share your thoughts, report a bug, suggest a feature…" maxlength="1000" oninput="updateFbCount()"></textarea>
+      <div class="feedback-actions">
+        <span class="feedback-char" id="feedbackChar">0 / 1000</span>
+        <button class="btn btn-ghost btn-sm" onclick="toggleFeedback()">Cancel</button>
+        <button class="btn btn-primary btn-sm" onclick="submitFeedback()">Send via Email →</button>
+      </div>
+      <div class="feedback-user-note" id="feedbackUserNote"></div>
+    </div>
   </div>
 </footer>
 
