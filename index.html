@@ -131,22 +131,43 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);m
 .modal-hint{font-size:11px;color:var(--text-3);display:flex;justify-content:space-between}
 .modal-error{font-size:12px;color:var(--red);min-height:14px;margin-top:2px}
 
-/* ── Footer & Feedback ── */
+/* ── Footer ── */
 .app-footer{border-top:1px solid var(--border);background:var(--surface);margin-top:52px}
 .footer-inner{max-width:980px;margin:0 auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .footer-brand{font-size:12px;color:var(--text-3)}
 .footer-brand em{font-style:italic}
 .feedback-toggle{border:1.5px solid var(--border);background:none;cursor:pointer;font-size:12px;font-weight:500;color:var(--text-2);font-family:'DM Sans',sans-serif;padding:6px 14px;border-radius:20px;transition:all .15s;display:inline-flex;align-items:center;gap:6px}
 .feedback-toggle:hover{background:var(--accent-bg);color:var(--accent);border-color:var(--accent-border)}
-.feedback-panel{display:none;border-top:1px solid var(--border);background:var(--surface-2);padding:20px 28px}
-.feedback-panel.open{display:block}
-.feedback-inner{max-width:980px;margin:0 auto}
-.feedback-title{font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:10px}
-.feedback-textarea{width:100%;min-height:96px;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:11px 14px;font-family:'DM Sans',sans-serif;font-size:13px;background:var(--surface);color:var(--text-1);resize:vertical;outline:none;transition:border-color .15s}
-.feedback-textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(29,78,216,.07)}
-.feedback-actions{display:flex;align-items:center;gap:8px;margin-top:10px}
-.feedback-char{font-size:11px;color:var(--text-3);flex:1}
-.feedback-user-note{font-size:11px;color:var(--text-3);margin-top:8px}
+
+/* ── Compose Modal ── */
+.compose-overlay{position:fixed;inset:0;background:rgba(26,25,24,.55);display:flex;align-items:center;justify-content:center;z-index:3000;backdrop-filter:blur(6px);padding:16px}
+.compose-overlay.hidden{display:none}
+.compose-modal{background:var(--surface);border-radius:16px;width:100%;max-width:500px;box-shadow:0 28px 72px rgba(0,0,0,.2);overflow:hidden;animation:modalIn .22s ease;display:flex;flex-direction:column}
+.compose-head{background:linear-gradient(135deg,#1D4ED8 0%,#4F46E5 100%);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.compose-head-title{font-size:15px;font-weight:600;color:white;display:flex;align-items:center;gap:9px}
+.compose-head-icon{width:30px;height:30px;background:rgba(255,255,255,.15);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.compose-close{border:none;background:rgba(255,255,255,.15);color:white;cursor:pointer;width:30px;height:30px;border-radius:50%;font-size:15px;display:flex;align-items:center;justify-content:center;transition:background .15s;flex-shrink:0}
+.compose-close:hover{background:rgba(255,255,255,.3)}
+.compose-meta{border-bottom:1px solid var(--border);flex-shrink:0}
+.compose-row{display:flex;align-items:center;padding:10px 18px;border-bottom:1px solid var(--border);gap:12px}
+.compose-row:last-child{border-bottom:none}
+.compose-row-label{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);width:48px;flex-shrink:0}
+.compose-row-val{font-size:13px;color:var(--text-2);flex:1;font-style:normal}
+.compose-row-input{border:none;outline:none;font-size:13px;color:var(--text-1);font-family:'DM Sans',sans-serif;flex:1;background:none;padding:0;min-width:0}
+.compose-row-input::placeholder{color:var(--text-3)}
+.compose-body{padding:14px 18px;flex:1}
+.compose-textarea{width:100%;min-height:130px;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text-1);resize:vertical;line-height:1.65;background:none}
+.compose-textarea::placeholder{color:var(--text-3)}
+.compose-foot{padding:12px 18px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;background:var(--surface-2);flex-shrink:0}
+.compose-char{font-size:11px;color:var(--text-3);flex:1}
+.compose-send-btn{height:36px;padding:0 18px;border-radius:var(--r-sm);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;border:none;background:linear-gradient(135deg,#1D4ED8,#4F46E5);color:white;display:inline-flex;align-items:center;gap:7px;transition:opacity .15s}
+.compose-send-btn:hover{opacity:.88}
+.compose-send-btn:disabled{opacity:.5;cursor:not-allowed}
+.compose-status{font-size:12px;padding:10px 18px;text-align:center;display:none;flex-shrink:0}
+.compose-status.success{display:block;background:#F0FDF4;color:#15803D;border-top:1px solid #BBF7D0}
+.compose-status.error{display:block;background:#FEF2F2;color:#B91C1C;border-top:1px solid #FECACA}
+.compose-setup-warn{font-size:11px;color:var(--amber);background:var(--amber-bg);border-top:1px solid #FDE68A;padding:8px 18px;text-align:center;display:none}
+.compose-setup-warn.visible{display:block}
 .section-header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .section-title{font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text-3);white-space:nowrap}
 .section-line{flex:1;height:1px;background:var(--border)}
@@ -337,6 +358,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);m
   </div>
 </header>
 
+<!-- ── Onboarding Modal ── -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal-card">
     <div class="modal-head">
@@ -360,11 +382,60 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);m
     <button id="onboardingBtn" class="btn btn-primary" style="width:100%;justify-content:center;height:46px;font-size:14px" onclick="submitOnboarding()">Enter Chronicle →</button>
     <div style="text-align:center;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)">
       <span style="font-size:12px;color:var(--text-3)">Don't have a code?</span>
-      <button onclick="requestInviteCode()" style="border:none;background:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--accent);font-family:'DM Sans',sans-serif;margin-left:6px;padding:0;text-decoration:underline;text-underline-offset:2px">Request one →</button>
+      <button onclick="openCompose('invite')" style="border:none;background:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--accent);font-family:'DM Sans',sans-serif;margin-left:6px;padding:0;text-decoration:underline;text-underline-offset:2px">Request one →</button>
     </div>
   </div>
 </div>
 
+<!-- ── Compose Modal (Feedback & Invite Request) ── -->
+<div class="compose-overlay hidden" id="composeOverlay">
+  <div class="compose-modal">
+    <div class="compose-head">
+      <div class="compose-head-title">
+        <div class="compose-head-icon">
+          <svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <span id="composeTitleText">Send Feedback</span>
+      </div>
+      <button class="compose-close" onclick="closeCompose()">✕</button>
+    </div>
+    <div class="compose-meta">
+      <div class="compose-row">
+        <span class="compose-row-label">To</span>
+        <span class="compose-row-val">swapnilbhatnagar@yahoo.com</span>
+      </div>
+      <div class="compose-row">
+        <span class="compose-row-label">Subject</span>
+        <span class="compose-row-val" id="composeSubjectVal"></span>
+      </div>
+      <div class="compose-row" id="composeFromRow">
+        <span class="compose-row-label">From</span>
+        <span class="compose-row-val" id="composeFromVal"></span>
+      </div>
+      <div class="compose-row" id="composeNameRow" style="display:none">
+        <span class="compose-row-label">Name</span>
+        <input type="text" class="compose-row-input" id="composeNameInput" placeholder="Your name (required)" maxlength="60">
+      </div>
+    </div>
+    <div class="compose-body">
+      <textarea class="compose-textarea" id="composeMessage" placeholder="" maxlength="1500" oninput="updateComposeChar()"></textarea>
+    </div>
+    <div class="compose-foot">
+      <span class="compose-char" id="composeChar">0 / 1500</span>
+      <button class="btn btn-ghost btn-sm" onclick="closeCompose()">Cancel</button>
+      <button class="compose-send-btn" id="composeSendBtn" onclick="sendCompose()">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
+        Send
+      </button>
+    </div>
+    <div class="compose-status" id="composeStatus"></div>
+    <div class="compose-setup-warn" id="composeSetupWarn">
+      ⚠ Web3Forms key not configured. See setup instructions in the file comments.
+    </div>
+  </div>
+</div>
+
+<!-- ── Greeting Bar ── -->
 <div class="greeting-bar" id="greetingBar">
   <div class="greeting-inner">
     <span class="greeting-text" id="greetingText"></span>
@@ -374,6 +445,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);m
 </div>
 
 <main class="main">
+  <!-- Tracker view -->
   <div class="tracker-view" id="trackerView">
     <div class="add-task-bar">
       <input type="text" class="add-task-input" id="taskInput"
@@ -399,6 +471,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);m
 </main>
 
 <script>
+// ════════════════════════════════════════════════════════════
+// CONFIG
+// ════════════════════════════════════════════════════════════
 const COLORS = [
   {dot:'#2563EB',bg:'#EFF6FF'},{dot:'#0891B2',bg:'#ECFEFF'},
   {dot:'#7C3AED',bg:'#F5F3FF'},{dot:'#D97706',bg:'#FFFBEB'},
@@ -406,12 +481,26 @@ const COLORS = [
   {dot:'#C026D3',bg:'#FDF4FF'},{dot:'#0F766E',bg:'#F0FDFA'},
 ];
 
-const INVITE_HASHES = ['ee9aef5817d712edc5617392bdbead1a1ef8c84cf22acb97dc6ba5f8f244475d',  
-                       'fde1898d39cf3c111b9b5bf349abdc32ca5c6d9ba102ff5a5325dce523adc44c',  
-                       '82ed3ba812250669588898ec3fbb5981438dc249de8dff24ec1732c7adfade7f', 
-                       '0464b1bdd552af821157a445532fdf036ff6e726b74c9d96be82dbb654def6a1', 
+// ════════════════════════════════════════════════════════════
+// ★ INVITE CODE HASHES
+//   NEVER store plain codes here. Only paste SHA-256 hashes
+//   generated by the Hash Generator tool (hash-generator.html).
+//   Each hash is a 64-character hex string.
+//   Codes are case-insensitive — the generator handles this.
+//
+//   Example workflow:
+//     1. Open hash-generator.html
+//     2. Type your code (e.g. myCoolCode99)
+//     3. Copy the hash it produces
+//     4. Paste it below, in quotes with a trailing comma
+//     5. Save this file and re-upload to your server
+// ════════════════════════════════════════════════════════════
+const INVITE_HASHES = [
+  // Paste your hashes here — one per line, in quotes + comma
+  // e.g. 'a3f9bc2d1e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b',
 ];
 
+// SHA-256 — tries Web Crypto API first (HTTPS), falls back to pure JS (HTTP / local file)
 async function sha256(str) {
   if (window.crypto && window.crypto.subtle) {
     try {
@@ -419,9 +508,10 @@ async function sha256(str) {
       return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
     } catch(e) { /* fall through */ }
   }
-  return _sha256Pure(str);
+  return _sha256Pure(str); // works on HTTP and file://
 }
 
+// Pure-JS SHA-256 (no dependencies, no network, works everywhere)
 function _sha256Pure(str) {
   const K = [
     0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
@@ -580,7 +670,7 @@ function requestInviteCode() {
 function initModalKeys() {
   ['inputName','inputCode'].forEach(id => {
     document.getElementById(id)?.addEventListener('keydown', e => {
-      if (e.key === 'Enter') submitOnboarding(); // async — fine to call without await here
+      if (e.key === 'Enter') submitOnboarding();
     });
   });
 }
@@ -590,7 +680,6 @@ function initModalKeys() {
 // ════════════════════════════════════════════════════════════
 function getGreeting() {
   const h = new Date().getHours();
-  // Arrays: pick by day-of-month mod length (consistent within a day)
   const idx = new Date().getDate();
   const pools = {
     morning:   ['Good morning','Rise & shine','Morning'],
@@ -613,42 +702,139 @@ function showGreeting() {
   text.textContent = `${getGreeting()}, ${currentUser.name}`;
   code.textContent = `ICode: ${currentUser.code}`;
   bar.classList.add('visible');
-  // Update feedback user note
-  const note = document.getElementById('feedbackUserNote');
-  if (note) note.textContent = `Sending as: ${currentUser.name} · ICode: ${currentUser.code}`;
 }
 
 // ════════════════════════════════════════════════════════════
-// FEEDBACK
+// ★ WEB3FORMS KEY
+//   1. Go to https://web3forms.com
+//   2. Enter swapnilbhatnagar@yahoo.com → click "Create Access Key"
+//   3. Copy the key and paste it below (replacing YOUR_KEY_HERE)
+//   4. Save file and re-upload. Done — emails will arrive in your inbox.
 // ════════════════════════════════════════════════════════════
-function toggleFeedback() {
-  const panel = document.getElementById('feedbackPanel');
-  const isOpen = panel.classList.contains('open');
-  panel.classList.toggle('open', !isOpen);
-  if (!isOpen) document.getElementById('feedbackText').focus();
+const WEB3FORMS_KEY = 'YOUR_KEY_HERE';
+
+// ════════════════════════════════════════════════════════════
+// COMPOSE MODAL
+// ════════════════════════════════════════════════════════════
+let composeMode = 'feedback';
+
+function openCompose(mode) {
+  composeMode = mode;
+  const isFeedback = mode === 'feedback';
+
+  // Title
+  document.getElementById('composeTitleText').textContent = isFeedback ? 'Send Feedback' : 'Request Invite Code';
+
+  // Subject
+  const code = currentUser?.code || 'N/A';
+  document.getElementById('composeSubjectVal').textContent = isFeedback
+    ? `Feedback from Chronicle User# ${code}`
+    : 'Request Invite Code for Chronicle';
+
+  // From row vs Name input row
+  document.getElementById('composeFromRow').style.display = isFeedback ? 'flex' : 'none';
+  document.getElementById('composeNameRow').style.display = isFeedback ? 'none' : 'flex';
+  document.getElementById('composeFromVal').textContent = currentUser
+    ? `${currentUser.name} (ICode: ${currentUser.code})`
+    : 'Chronicle User';
+
+  // Placeholder & pre-fill
+  const ta = document.getElementById('composeMessage');
+  if (isFeedback) {
+    ta.placeholder = 'Share your thoughts, report a bug, or suggest a feature…';
+    ta.value = '';
+  } else {
+    ta.placeholder = 'Tell us about yourself…';
+    ta.value = `Hi,\n\nI'd like to request an invite code for Chronicle — A simple time tracker.\n\nMy name: \nHow I found Chronicle: \nWhy I'd like to use it: \n\nThank you!`;
+  }
+
+  // Reset state
+  document.getElementById('composeStatus').className = 'compose-status';
+  document.getElementById('composeNameInput').value = '';
+  document.getElementById('composeSendBtn').disabled = false;
+  document.getElementById('composeSendBtn').innerHTML = `
+    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg> Send`;
+  updateComposeChar();
+
+  // Warn if key not set
+  const warn = document.getElementById('composeSetupWarn');
+  warn.classList.toggle('visible', !WEB3FORMS_KEY || WEB3FORMS_KEY === 'YOUR_KEY_HERE');
+
+  document.getElementById('composeOverlay').classList.remove('hidden');
+  setTimeout(() => document.getElementById('composeMessage').focus(), 80);
 }
-function updateFbCount() {
-  const v = document.getElementById('feedbackText').value;
-  document.getElementById('feedbackChar').textContent = `${v.length} / 1000`;
+
+function closeCompose() {
+  document.getElementById('composeOverlay').classList.add('hidden');
 }
-function submitFeedback() {
-  const msg = document.getElementById('feedbackText').value.trim();
-  if (!msg) { document.getElementById('feedbackText').focus(); return; }
-  const name = currentUser ? currentUser.name : 'Unknown';
-  const code = currentUser ? currentUser.code : 'N/A';
-  const subject = encodeURIComponent(`Feedback from Chronicle User# ${code}`);
-  const body = encodeURIComponent(
-    `${msg}\n\n` +
-    `──────────────────\n` +
-    `From: ${name}\n` +
-    `Invite Code: ${code}\n` +
-    `Date: ${new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}`
-  );
-  window.location.href = `mailto:swapnilbhatnagar@yahoo.com?subject=${subject}&body=${body}`;
-  document.getElementById('feedbackText').value = '';
-  document.getElementById('feedbackChar').textContent = '0 / 1000';
-  document.getElementById('feedbackPanel').classList.remove('open');
-  showToast('Email client opened ✓');
+
+function updateComposeChar() {
+  const v = document.getElementById('composeMessage').value;
+  document.getElementById('composeChar').textContent = `${v.length} / 1500`;
+}
+
+async function sendCompose() {
+  if (!WEB3FORMS_KEY || WEB3FORMS_KEY === 'YOUR_KEY_HERE') {
+    document.getElementById('composeSetupWarn').classList.add('visible');
+    return;
+  }
+
+  const message = document.getElementById('composeMessage').value.trim();
+  if (!message) { document.getElementById('composeMessage').focus(); return; }
+
+  const isFeedback = composeMode === 'feedback';
+  const senderName = isFeedback
+    ? (currentUser?.name || 'Chronicle User')
+    : (document.getElementById('composeNameInput').value.trim() || 'Anonymous');
+
+  if (!isFeedback && !senderName) {
+    document.getElementById('composeNameInput').focus();
+    document.getElementById('composeNameInput').style.borderBottom = '2px solid var(--red)';
+    return;
+  }
+
+  const code = currentUser?.code || 'N/A';
+  const subject = isFeedback
+    ? `Feedback from Chronicle User# ${code}`
+    : 'Request Invite Code for Chronicle';
+
+  const fullBody = isFeedback
+    ? `${message}\n\n──────────────\nFrom: ${senderName}\nInvite Code: ${code}\nDate: ${new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}`
+    : `${message}\n\n──────────────\nDate: ${new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}`;
+
+  const btn = document.getElementById('composeSendBtn');
+  btn.disabled = true;
+  btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Sending…`;
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject,
+        name: `Chronicle — ${senderName}`,
+        message: fullBody,
+        botcheck: false,
+      })
+    });
+    const json = await res.json();
+    if (json.success) {
+      const st = document.getElementById('composeStatus');
+      st.textContent = '✓ Message sent! You should receive a reply soon.';
+      st.className = 'compose-status success';
+      btn.innerHTML = '✓ Sent';
+      setTimeout(() => closeCompose(), 2200);
+    } else {
+      throw new Error(json.message || 'Send failed');
+    }
+  } catch(err) {
+    const st = document.getElementById('composeStatus');
+    st.textContent = `✗ Failed to send: ${err.message}. Please try again.`;
+    st.className = 'compose-status error';
+    btn.disabled = false;
+    btn.innerHTML = `<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg> Retry`;
+  }
 }
 
 // ════════════════════════════════════════════════════════════
@@ -1276,104 +1462,293 @@ async function exportExcel() {
 }
 
 // ── PDF ───────────────────────────────────────────────────────
-async function exportPDF() {
+function exportPDF() {
   closeExportMenu();
   if (!data.tasks.length) { showToast('No data to export'); return; }
-  showToast('Generating PDF…');
-  await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
-  await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js');
 
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ orientation:'landscape', unit:'mm', format:'a4' });
-
-  const BLUE = [29,78,216], WARM = [245,244,240], HEAD_TXT = [255,255,255];
   const uName = currentUser ? currentUser.name : 'Unknown';
   const uCode = currentUser ? currentUser.code : 'N/A';
+  const today = todayKey();
+  const exportDate = new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 
-  // ── Page 1: Summary ──
-  doc.setFont('helvetica','bold');
-  doc.setFontSize(18);
-  doc.setTextColor(...BLUE);
-  doc.text('Chronicle', 14, 16);
-  doc.setTextColor(26,25,24);
-  doc.setFontSize(10);
-  doc.setFont('helvetica','italic');
-  doc.text('A simple time tracker', 58, 16);
-  doc.setFont('helvetica','normal');
-  doc.setFontSize(9);
-  doc.setTextColor(156,152,146);
-  doc.text(`Generated: ${new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}   ·   User: ${uName}   ·   ICode: ${uCode}`, 14, 22);
-
-  // Stats row
-  const today = todayKey(), live = nowStr();
+  // ── Compute stats ──
   let totalAllMins = 0;
-  for (const t of data.tasks) for (const k of Object.keys(t.sessions)) totalAllMins += calcDayTotal(t,k,k===today?live:null);
   const activeDaysSet = new Set();
-  for (const t of data.tasks) for (const k of Object.keys(t.sessions)) if (calcDayTotal(t,k,null)>0) activeDaysSet.add(k);
-
-  doc.setFontSize(9); doc.setTextColor(156,152,146);
-  doc.text('TOTAL LOGGED', 14, 30);
-  doc.text('TASKS', 80, 30);
-  doc.text('ACTIVE DAYS', 140, 30);
-  doc.setFontSize(14); doc.setTextColor(26,25,24); doc.setFont('helvetica','bold');
-  doc.text(fmtDur(totalAllMins), 14, 37);
-  doc.text(String(data.tasks.length), 80, 37);
-  doc.text(String(activeDaysSet.size), 140, 37);
-  doc.setFont('helvetica','normal');
-
-  // Daily summary table
-  doc.setFontSize(10); doc.setFont('helvetica','bold'); doc.setTextColor(26,25,24);
-  doc.text('Daily Summary', 14, 47);
-
-  const sumRows = [];
   for (const t of data.tasks) {
-    for (const [date, s] of Object.entries(t.sessions).sort((a,b)=>b[0].localeCompare(a[0]))) {
-      const m = calcDayTotal(t, date, date===today?live:null);
-      if (m > 0) sumRows.push([t.title, date, fmtDur(m), s.charAt(0).toUpperCase()+s.slice(1)]);
+    for (const k of Object.keys(t.sessions)) {
+      const m = calcDayTotal(t, k, null);
+      totalAllMins += m;
+      if (m > 0) activeDaysSet.add(k);
     }
   }
+  const days7 = getLast7Days();
+  let weekMins = 0;
+  for (const t of data.tasks) for (const k of days7) weekMins += calcDayTotal(t, k, null);
 
-  doc.autoTable({
-    startY: 51,
-    head: [['Task','Date','Total Time','Status']],
-    body: sumRows.length ? sumRows : [['No data','','','']],
-    styles: { fontSize:9, cellPadding:3, font:'helvetica' },
-    headStyles: { fillColor:BLUE, textColor:HEAD_TXT, fontStyle:'bold', fontSize:9 },
-    alternateRowStyles: { fillColor:WARM },
-    columnStyles: { 0:{cellWidth:100}, 1:{cellWidth:32}, 2:{cellWidth:32}, 3:{cellWidth:32} },
-    margin: { left:14, right:14 },
-  });
-
-  // ── Page 2: Session Detail ──
-  doc.addPage();
-  doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(26,25,24);
-  doc.text('Session Detail', 14, 16);
-  doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(156,152,146);
-  doc.text('One row per recorded segment', 14, 21);
-
-  const detailRows = buildExportRows().map(r=>[r.task, r.date, r.seg||'—', r.start||'—', r.end||'—', r.durFmt, r.dayFmt]);
-
-  doc.autoTable({
-    startY: 25,
-    head: [['Task','Date','Seg #','Start','End','Duration','Day Total']],
-    body: detailRows.length ? detailRows : [['No data','','','','','','']],
-    styles: { fontSize:8.5, cellPadding:2.8, font:'helvetica' },
-    headStyles: { fillColor:BLUE, textColor:HEAD_TXT, fontStyle:'bold', fontSize:8.5 },
-    alternateRowStyles: { fillColor:WARM },
-    columnStyles: { 0:{cellWidth:80}, 1:{cellWidth:28}, 2:{cellWidth:16}, 3:{cellWidth:22}, 4:{cellWidth:22}, 5:{cellWidth:26}, 6:{cellWidth:26} },
-    margin: { left:14, right:14 },
-  });
-
-  // Page numbers
-  const total = doc.internal.getNumberOfPages();
-  for (let i = 1; i <= total; i++) {
-    doc.setPage(i);
-    doc.setFontSize(8); doc.setTextColor(156,152,146); doc.setFont('helvetica','normal');
-    doc.text(`Page ${i} of ${total}  •  Chronicle Time Tracker`, 14, doc.internal.pageSize.height-6);
+  // ── Build daily summary rows ──
+  const summaryMap = {}; // date → [{task, mins, color}]
+  for (const t of data.tasks) {
+    const c = COLORS[t.colorIndex % COLORS.length];
+    for (const [date, s] of Object.entries(t.sessions)) {
+      const m = calcDayTotal(t, date, null);
+      if (m <= 0) continue;
+      if (!summaryMap[date]) summaryMap[date] = [];
+      summaryMap[date].push({ title: t.title, mins: m, color: c.dot, state: s.state });
+    }
   }
+  const sortedDates = Object.keys(summaryMap).sort().reverse();
 
-  doc.save('chronicle-export.pdf');
-  showToast('PDF downloaded');
+  // ── Build session detail rows ──
+  const detailRows = buildExportRows().filter(r => r.start);
+
+  // ── Bar helper ──
+  const maxDayMins = Math.max(...Object.values(summaryMap).map(rows => rows.reduce((s,r)=>s+r.mins,0)), 1);
+
+  // ── HTML ──────────────────────────────────────────────────
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chronicle Report — ${uName}</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+  @page { size: A4 portrait; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', Helvetica, sans-serif; background: #fff; color: #1A1918; font-size: 10pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* ── Cover band ── */
+  .cover {
+    background: linear-gradient(135deg, #1D4ED8 0%, #1e3a8a 60%, #312e81 100%);
+    color: white; padding: 36pt 42pt 28pt;
+    display: flex; flex-direction: column; gap: 6pt;
+  }
+  .cover-logo { font-size: 28pt; font-weight: 600; letter-spacing: -0.5pt; }
+  .cover-logo em { font-style: italic; font-weight: 300; opacity: 0.75; font-size: 14pt; display: block; margin-top: 2pt; }
+  .cover-meta { display: flex; gap: 32pt; margin-top: 10pt; }
+  .cover-meta-item { display: flex; flex-direction: column; gap: 2pt; }
+  .cover-meta-label { font-size: 7pt; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; opacity: .6; }
+  .cover-meta-value { font-size: 11pt; font-weight: 500; }
+
+  /* ── Stats strip ── */
+  .stats-strip { display: flex; border-bottom: 1.5pt solid #E4E1D9; }
+  .stat { flex: 1; padding: 16pt 20pt; border-right: 1pt solid #E4E1D9; }
+  .stat:last-child { border-right: none; }
+  .stat-label { font-size: 7pt; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #9C9892; margin-bottom: 4pt; }
+  .stat-value { font-family: 'DM Mono', monospace; font-size: 20pt; font-weight: 500; color: #1D4ED8; line-height: 1; }
+  .stat-sub { font-size: 7.5pt; color: #9C9892; margin-top: 3pt; }
+
+  /* ── Sections ── */
+  .section { padding: 20pt 42pt; }
+  .section + .section { border-top: 1pt solid #F0EEE9; }
+  .section-title {
+    font-size: 8pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: #1D4ED8; margin-bottom: 12pt; display: flex; align-items: center; gap: 8pt;
+  }
+  .section-title::after { content: ''; flex: 1; height: 1pt; background: #E4E1D9; }
+
+  /* ── Daily table ── */
+  .day-block { margin-bottom: 16pt; page-break-inside: avoid; }
+  .day-header {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #F5F4F0; padding: 6pt 10pt; border-radius: 4pt;
+    margin-bottom: 6pt;
+  }
+  .day-date { font-size: 9pt; font-weight: 600; color: #1A1918; }
+  .day-total { font-family: 'DM Mono', monospace; font-size: 9pt; font-weight: 500; color: #1D4ED8; }
+  .day-bar-outer { height: 3pt; background: #E4E1D9; border-radius: 2pt; margin-bottom: 8pt; overflow: hidden; }
+  .day-bar-fill { height: 100%; border-radius: 2pt; background: linear-gradient(90deg, #1D4ED8, #7C3AED); }
+  .task-row-pdf { display: flex; align-items: center; gap: 8pt; padding: 4pt 10pt; border-radius: 3pt; }
+  .task-row-pdf:nth-child(odd) { background: #FAFAF8; }
+  .task-dot-pdf { width: 7pt; height: 7pt; border-radius: 50%; flex-shrink: 0; }
+  .task-name-pdf { flex: 1; font-size: 9pt; color: #1A1918; font-weight: 500; }
+  .task-dur-pdf { font-family: 'DM Mono', monospace; font-size: 8.5pt; color: #5C5954; }
+  .task-pct-pdf { font-size: 7.5pt; color: #9C9892; width: 28pt; text-align: right; }
+  .task-bar-wrap { width: 60pt; }
+  .task-bar-outer { height: 4pt; background: #E4E1D9; border-radius: 2pt; overflow: hidden; }
+  .task-bar-inner { height: 100%; border-radius: 2pt; }
+
+  /* ── Detail table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
+  thead tr { background: #1D4ED8; color: white; }
+  thead th { padding: 6pt 8pt; text-align: left; font-weight: 600; font-size: 7.5pt; letter-spacing: .06em; text-transform: uppercase; }
+  tbody tr:nth-child(even) { background: #F5F4F0; }
+  tbody tr:nth-child(odd) { background: #FFFFFF; }
+  tbody td { padding: 5pt 8pt; color: #1A1918; border-bottom: .5pt solid #F0EEE9; vertical-align: middle; }
+  .mono { font-family: 'DM Mono', monospace; }
+  .muted { color: #9C9892; }
+  .dot-cell { display: flex; align-items: center; gap: 6pt; }
+  .dot-sm { width: 6pt; height: 6pt; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── Footer ── */
+  .report-footer {
+    padding: 10pt 42pt; border-top: 1pt solid #E4E1D9;
+    display: flex; justify-content: space-between; align-items: center;
+    background: #F5F4F0;
+  }
+  .footer-left { font-size: 7.5pt; color: #9C9892; }
+  .footer-right { font-size: 7.5pt; color: #9C9892; font-family: 'DM Mono', monospace; }
+
+  /* ── Page breaks ── */
+  .page-break { page-break-before: always; }
+  @media print {
+    body { background: white; }
+    .no-print { display: none; }
+    a { text-decoration: none; color: inherit; }
+  }
+  /* ── Print button (screen only) ── */
+  .print-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    background: #1D4ED8; color: white; padding: 10pt 20pt;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'DM Sans', sans-serif; font-size: 10pt;
+    box-shadow: 0 2px 12px rgba(0,0,0,.2);
+  }
+  .print-bar span { opacity: .85; font-size: 9pt; }
+  .print-btn {
+    background: white; color: #1D4ED8; border: none; cursor: pointer;
+    padding: 7pt 18pt; border-radius: 6pt; font-weight: 700;
+    font-family: 'DM Sans', sans-serif; font-size: 10pt;
+  }
+  .print-btn:hover { background: #EFF4FF; }
+  @media print { .print-bar { display: none; } body { padding-top: 0; } }
+  body { padding-top: 44pt; }
+  @media print { body { padding-top: 0; } }
+</style>
+</head>
+<body>
+
+<div class="print-bar no-print">
+  <span>Chronicle Report — ready to save as PDF</span>
+  <button class="print-btn" onclick="window.print()">⬇ Save as PDF</button>
+</div>
+
+<!-- ── Cover ── -->
+<div class="cover">
+  <div class="cover-logo">
+    Chronicle
+    <em>A simple time tracker</em>
+  </div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Report generated</span>
+      <span class="cover-meta-value">${exportDate}</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">User</span>
+      <span class="cover-meta-value">${esc(uName)}</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Invite Code</span>
+      <span class="cover-meta-value" style="font-family:'DM Mono',monospace;font-size:10pt">${esc(uCode)}</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Stats strip ── -->
+<div class="stats-strip">
+  <div class="stat">
+    <div class="stat-label">Total Time Logged</div>
+    <div class="stat-value">${fmtDur(totalAllMins)}</div>
+    <div class="stat-sub">across all tasks</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">This Week</div>
+    <div class="stat-value">${fmtDur(weekMins)}</div>
+    <div class="stat-sub">last 7 days</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">Active Days</div>
+    <div class="stat-value">${activeDaysSet.size}</div>
+    <div class="stat-sub">days with logged time</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">Tasks Tracked</div>
+    <div class="stat-value">${data.tasks.length}</div>
+    <div class="stat-sub">total tasks</div>
+  </div>
+</div>
+
+<!-- ── Daily Breakdown ── -->
+<div class="section">
+  <div class="section-title">Daily Breakdown</div>
+  ${sortedDates.map(date => {
+    const rows = summaryMap[date];
+    const dayTotal = rows.reduce((s,r) => s+r.mins, 0);
+    const barW = Math.round((dayTotal / maxDayMins) * 100);
+    const d = new Date(date+'T00:00:00');
+    const label = d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'});
+    return `<div class="day-block">
+      <div class="day-header">
+        <span class="day-date">${label}</span>
+        <span class="day-total">${fmtDur(dayTotal)}</span>
+      </div>
+      <div class="day-bar-outer"><div class="day-bar-fill" style="width:${barW}%"></div></div>
+      ${rows.sort((a,b)=>b.mins-a.mins).map((r,i) => {
+        const pct = Math.round((r.mins/dayTotal)*100);
+        const bw  = Math.round((r.mins/dayTotal)*100);
+        return `<div class="task-row-pdf">
+          <div class="task-dot-pdf" style="background:${r.color}"></div>
+          <div class="task-name-pdf">${esc(r.title)}</div>
+          <div class="task-bar-wrap"><div class="task-bar-outer"><div class="task-bar-inner" style="width:${bw}%;background:${r.color}"></div></div></div>
+          <div class="task-dur-pdf">${fmtDur(r.mins)}</div>
+          <div class="task-pct-pdf">${pct}%</div>
+        </div>`;
+      }).join('')}
+    </div>`;
+  }).join('') || '<p style="color:#9C9892;font-size:9pt">No data logged yet.</p>'}
+</div>
+
+<!-- ── Session Detail ── -->
+<div class="section page-break">
+  <div class="section-title">Session Detail</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:36%">Task</th>
+        <th style="width:13%">Date</th>
+        <th style="width:7%">Seg</th>
+        <th style="width:10%">Start</th>
+        <th style="width:10%">End</th>
+        <th style="width:12%">Duration</th>
+        <th style="width:12%">Day Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${detailRows.map(r => {
+        const t = data.tasks.find(x => x.title === r.task);
+        const c = t ? COLORS[t.colorIndex % COLORS.length].dot : '#9C9892';
+        return `<tr>
+          <td><div class="dot-cell"><div class="dot-sm" style="background:${c}"></div>${esc(r.task)}</div></td>
+          <td class="mono muted">${r.date}</td>
+          <td class="mono muted" style="text-align:center">${r.seg}</td>
+          <td class="mono">${r.start||'—'}</td>
+          <td class="mono">${r.end||'—'}</td>
+          <td class="mono" style="color:#1D4ED8;font-weight:500">${r.durFmt}</td>
+          <td class="mono muted">${r.dayFmt}</td>
+        </tr>`;
+      }).join('') || '<tr><td colspan="7" style="text-align:center;color:#9C9892;padding:16pt">No session data.</td></tr>'}
+    </tbody>
+  </table>
+</div>
+
+<!-- ── Footer ── -->
+<div class="report-footer">
+  <span class="footer-left">Chronicle — A simple time tracker &nbsp;·&nbsp; ${exportDate}</span>
+  <span class="footer-right">${esc(uName)} &nbsp;·&nbsp; ${esc(uCode)}</span>
+</div>
+
+<script>
+  // Auto-open print dialog after fonts load
+  window.addEventListener('load', () => setTimeout(() => window.print(), 800));
+<\/script>
+</body>
+</html>`;
+
+  const win = window.open('', '_blank');
+  if (!win) { showToast('Please allow pop-ups and try again'); return; }
+  win.document.write(html);
+  win.document.close();
+  showToast('Report opened — save as PDF from print dialog');
 }
 
 // ── Utilities ─────────────────────────────────────────────────
@@ -1426,6 +1801,12 @@ function init() {
   }
   initModalKeys();
 
+  // Close compose on Escape or outside click
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCompose(); });
+  document.getElementById('composeOverlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('composeOverlay')) closeCompose();
+  });
+
   // Close export dropdown on outside click
   document.addEventListener('click', e => {
     const wrap = document.getElementById('exportWrap');
@@ -1444,26 +1825,14 @@ function init() {
 
 init();
 </script>
-<!-- ── Feedback Footer ── -->
+<!-- ── Footer ── -->
 <footer class="app-footer">
   <div class="footer-inner">
     <span class="footer-brand">Chronicle &mdash; <em>A simple time tracker</em></span>
-    <button class="feedback-toggle" onclick="toggleFeedback()">
-      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <button class="feedback-toggle" onclick="openCompose('feedback')">
+      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       Send Feedback
     </button>
-  </div>
-  <div class="feedback-panel" id="feedbackPanel">
-    <div class="feedback-inner">
-      <div class="feedback-title">Your feedback goes directly to the creator</div>
-      <textarea class="feedback-textarea" id="feedbackText" placeholder="Share your thoughts, report a bug, suggest a feature…" maxlength="1000" oninput="updateFbCount()"></textarea>
-      <div class="feedback-actions">
-        <span class="feedback-char" id="feedbackChar">0 / 1000</span>
-        <button class="btn btn-ghost btn-sm" onclick="toggleFeedback()">Cancel</button>
-        <button class="btn btn-primary btn-sm" onclick="submitFeedback()">Send via Email →</button>
-      </div>
-      <div class="feedback-user-note" id="feedbackUserNote"></div>
-    </div>
   </div>
 </footer>
 
